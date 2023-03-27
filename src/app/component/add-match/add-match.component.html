@@ -1,0 +1,29 @@
+<app-banner banner="Add Match"></app-banner>
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <!-- identifier id par #nom de id ="ngForm" (directive) -->
+          <form #matchForm="ngForm" (ngSubmit)="addMatch()">
+            <div class="form-group">
+              <!-- identifier name de l'input  -->
+              <input [(ngModel)]="match.scoreOne" name="scoreOne" type="number" class="form-control" placeholder="score-one">
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="match.scoreTwo" name="scoreTwo" type="number" class="form-control" placeholder="score-two">
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="match.teamOne" name="teamOne" type="text" class="form-control" placeholder="team-one">
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="match.teamTwo" name="teamTwo" type="text" class="form-control" placeholder="team-two">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary py-3 px-5" value="add-match">
+            </div>
+          </form>  
+        </div>
+      </div>
+    </div>
+  </div>
+  

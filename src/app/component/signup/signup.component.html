@@ -1,0 +1,77 @@
+<app-banner banner="signup"></app-banner>
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <form [formGroup]="signupForm">
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="firstName" placeholder="FirstName">
+          </div>
+          <div *ngIf="signupForm.controls['firstName'].invalid && (
+            signupForm.controls['firstName'].touched 
+            || signupForm.controls['firstName'].dirty 
+          )">
+          <div *ngIf="signupForm.controls['firstName'].errors.required" style="color: red;">
+            First Name is required
+          </div>
+          <div *ngIf="signupForm.controls['firstName'].errors.minlength" style="color: red;">
+            First Name must have at least 3 chars
+          </div>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="lastName" placeholder="lastName">
+          </div>
+          <div *ngIf="signupForm.controls['lastName'].invalid && (
+            signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty
+          )">
+          <div *ngIf="signupForm.controls['lastName'].errors.required">
+            Last Name is required
+          </div>
+          <div *ngIf="signupForm.controls['lastName'].errors.minlength" >
+            Last Name must have at least 5 chars
+          </div>
+          </div>
+
+
+          <div class="form-group">
+            <input type="email" class="form-control" formControlName="email" placeholder="Email">
+          </div>
+          <div *ngIf="signupForm.controls['email'].invalid && (
+            signupForm.controls['email'].touched || signupForm.controls['email'].dirty
+          )">
+          <div *ngIf="signupForm.controls['email'].errors.required">
+           email is required
+          </div>
+          
+          <div *ngIf="signupForm.controls['email'].errors.email" >
+            email format Invalid
+          </div>
+          
+          </div>
+          <span style="color:red">{{messageError}}</span>
+          <div class="form-group">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          </div>
+          <div *ngIf="signupForm.controls['password'].invalid && (
+            signupForm.controls['password'].touched || signupForm.controls['password'].dirty
+          )">
+          <div *ngIf="signupForm.controls['password'].errors.required">
+           password is required
+          </div>
+          <div *ngIf="signupForm.controls['password'].errors.minlength" >
+            password must have at least 6 chars
+          </div>
+          <div *ngIf="signupForm.controls['password'].errors.maxlength" >
+            password must have at least 12 chars
+          </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" [disabled]="signupForm.invalid" (click)="signup()" class="btn btn-primary py-3 px-5" value="Signup">
+          </div>
+        </form>  
+      </div>
+    </div>
+  </div>
+</div>
